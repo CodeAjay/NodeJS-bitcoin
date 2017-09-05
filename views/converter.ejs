@@ -1,0 +1,21 @@
+	<button type="button"><a href="/">Home</a></button>
+	<button type="button"><a href="/wallet">Wallet</a></button>
+	<button type="button"><a href="/converter">Converter</a></button>
+	<h1>Convert into BTC from USD or into USD from BTC</h1>
+	<h3>BTC Price =</h3>
+	<input type="text" id="btc" value="1" onkeyup="btc()">
+	<h3>USD Price =</h3>
+	<input type="text" id="usd" value="<%= lastPrice%>" onkeyup="usd()">
+	<h3>Last USD =<%= lastPrice %></h3>
+	<script>
+	  function btc(){
+	    var btcValue = document.getElementById("btc").value;
+		var usdcal = btcValue * <%= lastPrice%>;
+		document.getElementById("usd").value = usdcal;
+	  }
+	  function usd(){
+	    var usdValue = document.getElementById("btc").value;
+		var btccal = usdValue / <%= lastPrice%>;
+		document.getElementById("btc").value = btccal;
+	  }
+	</script>
